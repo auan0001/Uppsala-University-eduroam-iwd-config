@@ -1,0 +1,20 @@
+#+title: Connect to eduroam using iwd at Uppsala university
+
+#+begin_src
+# /var/lib/iwd/eduroam.8021x
+
+[Security]
+EAP-Method=PEAP
+EAP-Identity=anonymous
+# If you run the wpa_supplicant CAT installer
+# the default location is /home/cat_installer/ca.pem.
+# If /home is protected, make sure to move the .pem file, for example:
+EAP-PEAP-CACert=/etc/ssl/certs/ca.pem
+EAP-PEAP-Phase2-Method=MSCHAPV2
+EAP-PEAP-Phase2-Identity=<abcd1234>@user.uu.se
+EAP-PEAP-Phase2-Password=<passwordB>
+EAP-PEAP-ServerDomainMask=radiusauth.uu.se
+
+[Settings]
+AutoConnect=True
+#+end_src
