@@ -1,4 +1,7 @@
 #+title: Connect to eduroam using iwd at Uppsala university
+Read the info and download the Python script found at [[https://mp.uu.se/en/web/info/stod/it-telefoni/it-support/network-on-campus/eduroam/linux]].
+
+The installer puts the certificate at ~/home/cat_installer/ca.pem~ by default. Since the ~home~ directory might be protected, it is recommended to move the file elsewhere. Create a file named ~eduroam.8021~ in ~/var/lib/iwd/~ and fill in your username and Password B, as in the example below.
 
 #+begin_src
 # /var/lib/iwd/eduroam.8021x
@@ -18,3 +21,5 @@ EAP-PEAP-ServerDomainMask=radiusauth.uu.se
 [Settings]
 AutoConnect=True
 #+end_src
+
+If anything is incorrect, ~iwd~ will respond with ~Operation failed~. On my system, (~5.18.16-arch1-1~ using ~systemd-resolved~) ~iwd~ connected successfully without DNS working properly. I had to change the DNS to ~DNS=1.1.1.1#cloudflare-dns.com ~ in my ~/etc/systemd/network/25-wireless.network~ file.
