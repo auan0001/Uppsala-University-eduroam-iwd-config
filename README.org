@@ -22,4 +22,4 @@ EAP-PEAP-ServerDomainMask=radiusauth.uu.se
 AutoConnect=True
 #+end_src
 
-If anything is incorrect, ~iwd~ will respond with ~Operation failed~. On my system, (~5.18.16-arch1-1~ using ~systemd-resolved~) ~iwd~ connected successfully without DNS working properly. I had to change the DNS to ~DNS=1.1.1.1#cloudflare-dns.com ~ in my ~/etc/systemd/network/25-wireless.network~ file.
+If anything is incorrect, ~iwd~ will respond with ~Operation failed~. On my system, (~5.18.16-arch1-1~ using ~systemd-resolved~) ~iwd~ connected successfully without DNS working properly. I had to change the DNS to ~DNS=1.1.1.1#cloudflare-dns.com~ in my ~/etc/systemd/network/25-wireless.network~ file.
